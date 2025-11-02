@@ -1,0 +1,122 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>for my sonpapdi 💘😋</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background: linear-gradient(to bottom right, #ffc0cb, #ffb6c1, #ff69b4);
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .container {
+            position: relative;
+            z-index: 10;
+            text-align: center;
+        }
+
+        .flower {
+            font-size: 8vw;
+            animation: float 3s infinite alternate;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-20px); }
+        }
+
+        button {
+            background-color: #ff69b4;
+            color: white;
+            border: none;
+            padding: 3vw 6vw;
+            font-size: 5vw;
+            border-radius: 2vw;
+            cursor: pointer;
+            transition: transform 0.3s, background-color 0.3s;
+            margin-top: 5vw;
+        }
+
+        button:hover {
+            transform: scale(1.1);
+            background-color: #ff1493;
+        }
+
+        /* Floating hearts */
+        .heart {
+            position: absolute;
+            font-size: 5vw;
+            animation: moveHeart linear infinite;
+        }
+
+        @keyframes moveHeart {
+            0% {
+                transform: translateY(100vh) scale(1);
+                opacity: 0;
+            }
+            10% { opacity: 1; }
+            100% {
+                transform: translateY(-10vh) scale(1.5);
+                opacity: 0;
+            }
+        }
+
+        .big-text {
+            font-size: 8vw;
+            color: white;
+            margin: 5vw 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id="mainContainer">
+        <div class="flower">🌸 🌸 🌸</div>
+        <h1 style="color:white;">Hi maji jaan please haa button click kr</h1>
+        <button onclick="showLoveMessage()">💘</button>
+    </div>
+
+    <script>
+        // Create multiple floating 💘 emojis
+        const numberOfHearts = 50;
+        for (let i = 0; i < numberOfHearts; i++) {
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.textContent = '💘';
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.fontSize = (3 + Math.random() * 6) + 'vw';
+            heart.style.animationDuration = (5 + Math.random() * 5) + 's';
+            heart.style.animationDelay = Math.random() * 5 + 's';
+            document.body.appendChild(heart);
+        }
+
+        function showLoveMessage() {
+            const container = document.getElementById('mainContainer');
+            container.innerHTML = ''; // Clear old content
+
+            // First big text: Sorry Maji Jaan
+            const sorryText = document.createElement('div');
+            sorryText.classList.add('big-text');
+            sorryText.textContent = 'Sorry Maji Jaan💘';
+            container.appendChild(sorryText);
+
+            // After 2 seconds, show the second big text
+            setTimeout(() => {
+                const loveText = document.createElement('div');
+                loveText.classList.add('big-text');
+                loveText.textContent = 'I Love You Maji Jaan 💘';
+                container.appendChild(loveText);
+            }, 2000);
+        }
+    </script>
+</body>
+</html>
